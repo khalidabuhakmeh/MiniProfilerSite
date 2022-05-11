@@ -1,0 +1,36 @@
+﻿@page
+@using System.Globalization
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var enUs = new CultureInfo("en-US");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products Yo!</h1>
+</div>
+
+<table class="table table-bordered table-responsive table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Company</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td>@product.Id</td>
+            <td>@product.CompanyName</td>
+            <td>@product.Name</td>
+            <td>@product.Department</td>
+            <td>@product.Price.ToString("C", enUs)</td>
+        </tr>
+    }
+    </tbody>
+</table>
